@@ -1,0 +1,16 @@
+package main
+
+import (
+	"time"
+
+	"github.com/go-vgo/robotgo"
+)
+
+fun))
+		robotgo.MoveMouseSmooth(newX, newY)
+		robotgo.MilliSleep(50) // 等待一段时间以平滑移动
+	}
+
+	// 移动鼠标回到原始位置
+	robotgo.MoveMouse(x, y)
+}
