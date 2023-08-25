@@ -11,13 +11,13 @@ import (
 )
 
 func GetScreen() {
-	fmt.Println("--- Please press w to get screenshot ---")
-	hook.Register(hook.KeyDown, []string{"w"}, func(e hook.Event) {
-		fmt.Println("w")
+	fmt.Println("--- Please press 1+2+3 to send screenshot ---")
+	hook.Register(hook.KeyDown, []string{"1", "2", "3"}, func(e hook.Event) {
+		fmt.Println("1+2+3")
 		ScreenshotFunc()
 	})
 
-	fmt.Println("--- Please press ctrl + shift + q to get screenshot ---")
+	fmt.Println("--- Please press ctrl + shift + q to stop screenshot ---")
 	hook.Register(hook.KeyDown, []string{"q", "ctrl", "shift"}, func(e hook.Event) {
 		fmt.Println("ctrl-shift-q")
 		hook.End()

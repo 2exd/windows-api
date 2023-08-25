@@ -1,4 +1,4 @@
-module github.com/2exd/windows-api
+module windows-api
 
 go 1.18
 

@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/2exd/windows-api/funcs"
 	"github.com/gorilla/websocket"
 	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"strconv"
 	"time"
+	"windows-api/funcs"
 )
 
 // 全局客户端map
@@ -128,7 +128,7 @@ func main() {
 
 func init() {
 	viper.SetConfigType("yaml")
-	viper.SetConfigFile("./config.yaml") // 注意:如果使用相对路径，则是以 main.go 为当前位置与配置文件之间的路径
+	viper.SetConfigFile("./server.yaml") // 注意:如果使用相对路径，则是以 main.go 为当前位置与配置文件之间的路径
 	err := viper.ReadInConfig()          // 查找并读取配置文件
 	if err != nil {                      // 处理读取配置文件的错误
 		panic(fmt.Errorf("Fatal error config file: %s \n", err))
