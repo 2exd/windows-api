@@ -7,8 +7,8 @@ $OS_ARCH="windows"
 $env:GOOS=${OS_ARCH}
 $env:GOARCH="amd64"
 
-go build -o .\bin\client\client-${OS_ARCH}.exe .\client\client.go
-go build -o .\bin\server\server-${OS_ARCH}.exe .\server\server.go
+go build -ldflags "-s -w" -o .\bin\client\client-${OS_ARCH}.exe .\client\client.go
+go build -ldflags "-s -w" -o .\bin\server\server-${OS_ARCH}.exe .\server\server.go
 ```
 
 ## 配置
