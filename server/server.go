@@ -43,8 +43,10 @@ func pic(w http.ResponseWriter, r *http.Request) {
 			log.Println("read:", err)
 			break
 		}
-		rgba := funcs.DecodeToRGBA(message)
-		funcs.SaveScreen(&rgba)
+
+		rgba, _ := funcs.DecodeImageFromBase64(message)
+		// rgba := funcs.DecodeToRGBA(message)
+		funcs.SaveScreen(rgba)
 		// log.Printf("recv: %s", message)
 		// err = client.WriteMessage(mt, message)
 		// if err != nil {

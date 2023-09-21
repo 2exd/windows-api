@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/atotto/clipboard"
 	"github.com/gorilla/websocket"
 	"github.com/spf13/viper"
+	"image/png"
 	"log"
 	"net/url"
 	"os"
@@ -35,8 +37,12 @@ func main() {
 	for {
 		select {
 		case img := <-funcs.ImgChan:
-			data := funcs.EncodeToBytes(img)
-			err := conn.WriteMessage(websocket.BinaryMessage, data)
+			var data bytes.Buffer
+			err := png.Encode(&data, img)
+			if err != nil {
+				log.Println(err)
+			}
+			err = conn.WriteMessage(websocket.BinaryMessage, data.Bytes())
 			if err != nil {
 				log.Println("write:", err)
 				return
